@@ -10,7 +10,6 @@
   "author": "ashish",
   "license": "ISC",
   "dependencies": {
-    "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "watson-developer-cloud": "^3.0.3"
   }

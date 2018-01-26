@@ -27,7 +27,7 @@ app.get('/', function (req, res) {
       if (err)
       console.log('error:', err);
       else
-     console.log(JSON.stringify(response, null, 2));
+     //console.log(JSON.stringify(response, null, 2));
      context= response.context;
      res.sendfile(path.join(__dirname, 'public', 'input.html'));
     });
@@ -42,7 +42,7 @@ app.post('/send',(req, res) => {
       if (err)
       console.log('error:', err);
       else
-     console.log(JSON.stringify(response, null, 2));
+     //console.log(JSON.stringify(response, null, 2));
      context= response.context;
      res.send(response.output.text);
     });
