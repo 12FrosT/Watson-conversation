@@ -46,7 +46,7 @@ Watson.defaultProps = {
 const steps = [
 {
   id: 'first',
-  message: 'Hello',
+  message: 'Hi. It looks like a nice drive today. What would you like me to do?',
   trigger: 'thisOne'
 },
 {
