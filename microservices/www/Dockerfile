@@ -8,4 +8,4 @@ ADD src /src
 #install node modules
 RUN npm install
 
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
