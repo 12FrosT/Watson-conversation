@@ -1,18 +1,22 @@
 {
-  "name": "hello-node-js",
-  "version": "1.0.0",
-  "description": "A simple node-js-express app",
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
-  "author": "Jaison",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "html": "^1.0.0",
-    "morgan": "^1.9.0",
-    "request": "^2.83.0",
-    "request-debug": "^0.2.0"
+    "chatbot": "^1.2.3",
+    "material-ui": "^0.20.0",
+    "react": "^16.2.0",
+    "react-body-backgroundcolor": "^1.0.1",
+    "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
+    "react-scripts": "1.1.0",
+    "react-simple": "^1.2.3",
+    "react-simple-chatbot": "^0.2.9"
   }
 }
