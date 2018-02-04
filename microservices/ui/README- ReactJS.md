@@ -35,8 +35,9 @@
   
   <img src = "https://github.com/12FrosT/Watson-conversation/blob/master/microservices/ui/image.png" />
   
-   <p>~<strong>Saksham Singh</strong></p>
-    <p>~<strong>Karthik</strong></p>
+   <p>~<strong>Ashish - NodeJS Express</strong></p>
+   <p>~<strong>Saksham Singh - ReactJS</strong></p>
+    <p>~<strong>Karthik - ReactJS</strong></p>
 
 
  
