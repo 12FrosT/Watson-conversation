@@ -13,7 +13,7 @@
  ### Installing
  <ol>
   <li> Clone the repository by running git clone https://github.com/12FrosT/Watson-conversation.git </li>
-  <li> Change your directory to /microservices/ui </li>
+  <li> Change your directory to /microservices/ui/App </li>
   <li> Run <strong>npm install</strong> from your terminal to install all dependencies.</li>
   <li> Run <strong>npm install axios </strong> if you face error in sending/receiving responses
   <li> Run <strong>npm start</strong> from your terminal to start the server in development mode.</li>
