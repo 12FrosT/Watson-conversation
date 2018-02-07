@@ -6,4 +6,4 @@
 ##Pre-requisites
 We will use Node.js along with the express framework to build our server. Ensure that you have Node installed on your computer, do this by running node-v in the terminal. If you do not have Node installed you can get it from https://nodejs.org
 
-Before you begin, ensure that you have the latest version of the hasura cli installed. You can find instructions to download the hasura cli from [here] (https://docs.hasura.io/0.15/manual/install-hasura-cli.html) .
+Before you begin, ensure that you have the latest version of the hasura cli installed. You can find instructions to download the hasura cli from [here] https://docs.hasura.io/0.15/manual/install-hasura-cli.html .
