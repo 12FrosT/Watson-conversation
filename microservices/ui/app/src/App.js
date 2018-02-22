@@ -4,8 +4,6 @@ import {Helmet} from 'react-helmet';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-var chatBackground = require("./background.jpg")
-
 class Watson extends React.Component {
   constructor(props){
     super(props);
