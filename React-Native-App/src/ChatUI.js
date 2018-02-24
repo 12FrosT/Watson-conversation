@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
-import firebase from 'firebase';
 import axios from 'axios';
 import {
     Text,
     AsyncStorage,
     ScrollView,
-    KeyboardAvoidingView,
+    Keyboard,
     ImageBackground,
     View,
     StyleSheet,
     TextInput,
     FlatList,
 } from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview';
-import { KeyboardAwareView } from 'react-native-keyboard-aware-view';
-import {  Spinner, Card, CardSection } from './components/common';
 import { Container, Header, Left, Body, Right, Icon, Button, Title } from 'native-base';
-import Menu from 'react-native-pop-menu';
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -88,6 +84,23 @@ export default class ChatUI extends Component {
         };
     }
 
+    componentWillMount() {
+              this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow.bind(this));
+              this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide.bind(this));
+            }
+
+            componentWillUnmount () {
+              this.keyboardDidShowListener.remove();
+              this.keyboardDidHideListener.remove();
+            }
+
+            _keyboardDidShow () {
+              this.scrollView.scrollToEnd({animate: false});
+            }
+
+            _keyboardDidHide () {
+              this.scrollView.scrollToEnd({animate: false});
+            }
     componentDidMount() {
       AsyncStorage.getItem('msgs')
         .then(req => JSON.parse(req))
@@ -102,11 +115,18 @@ export default class ChatUI extends Component {
         .then()
         .catch(error => console.log('State Inpersistent!'));
     }
+    deleteStorage() {
+    AsyncStorage.removeItem('msgs')
+    .then()
+    .catch(error => console.log('Could not delete chats!'));
+  }
 // Sends Text to the lex runtime
     handleTextSubmit() {
+
         let inputText = this.state.userInput.trim()
         if (inputText !== '')
             this.showRequest(inputText)
+
     }
 // Populates screen with user inputted message
     showRequest(inputText) {
@@ -178,46 +198,9 @@ render(){
                     <Body>
                       <Title>Watson</Title>
                     </Body>
-                    <Right>
-                    <Button transparent
-                    onPress={() => {
-                           this.setState({
-                             menuVisible: true,
-                             top:50,
-                             right:-8,
-                           });
-                         }}>
-
-                      <Icon name='more' style = {{fontSize: 35, color: 'white', marginRight:5}}/>
-                    </Button>
-
-                    </Right>
+                   <Right />
         </Header>
-        <Menu visible={this.state.menuVisible}
-                      onVisible={(isVisible) => {
-                        this.state.menuVisible = isVisible
-                      }}
-                      top={this.state.top}
-                      right={this.state.right}
-                      data={[
-                        {
-                          title: 'Sign Out',
-                          onPress: () => {
-                          firebase.auth().signOut()
-                          }
-                        },
-                        {
-                          title: 'Clear Chat',
-                          onPress: () => {
-                            this.setState({
-                                messages: [],
-                                userInput: '',
-                                inputEnabled: true,
-                                menuVisible:false,
-                            })
-                          }
-                        },
-                      ]} contentStyle={{backgroundColor: '#067c87'}}/>
+
           </View>
 
               <ScrollView
@@ -225,17 +208,18 @@ render(){
                 onContentSizeChange={(contentWidth, contentHeight) => {
                     this.scrollView.scrollToEnd({animate: true});
               }}>
-                <KeyboardAvoidingView style={styles.messages}>
+                <View style={styles.messages}>
                     <FlatList
                         data={this.state.messages}
                         renderItem={({ item }) => this.renderTextItem(item)}
                         keyExtractor={(item, index) => index}
                         extraData={this.state.messages}
                     />
-                </KeyboardAvoidingView>
+                </View>
               </ScrollView>
 
               <View style={styles.inputContainer}>
+                
                   <TextInput
                       onChangeText={(text) => this.setState({userInput: text})}
                       value={this.state.userInput}
